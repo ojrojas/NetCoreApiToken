@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "yADtxUWtBlthSLQXXgc1NsvNL4Zbde4p79yRqoW0PAbbhreBgArD4JkUqCfXF2O/u3HnHuZ/Q8EdC/e0eyxIXA==",
+  "dgSpecHash": "rxqwAe1JlWCUpbamxo7fz370VCYieh68KRM8cWXfIubHCVJQ+yx9G6O2xwbe6ONWASqrASbGL57SW3vMUuRfqw==",
   "success": true,
   "projectFilePath": "/home/orojas/Sources/Projects/Rappi/src/RappiApi/RappiApi.csproj",
   "expectedPackageFiles": [
@@ -125,8 +125,7 @@
     "/home/orojas/.nuget/packages/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg.sha512",
     "/home/orojas/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512",
     "/home/orojas/.nuget/packages/system.xml.xmldocument/4.3.0/system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "/home/orojas/.nuget/packages/system.xml.xmlserializer/4.3.0/system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "/home/orojas/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.2/microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+    "/home/orojas/.nuget/packages/system.xml.xmlserializer/4.3.0/system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }

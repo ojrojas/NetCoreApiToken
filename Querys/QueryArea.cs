@@ -1,5 +1,6 @@
 using System.Globalization;
 using RappiApi.Models;
+using RappiApi.Models.ViewModels;
 
 namespace RappiApi.Querys
 {
@@ -37,11 +38,20 @@ namespace RappiApi.Querys
             return string.Format(
                 CultureInfo.CurrentCulture, query);
         }
-        public string ObtenerAreasQuery()
+        public string ObtenerAreasQuery(PaginacionViewModel paginacion =null)
         {
-            string query = "select * from Area";
-            return string.Format(
-                CultureInfo.CurrentCulture, query);
+            if (paginacion == null)
+            {
+                string query = "select * from Area";
+                return string.Format(
+                    CultureInfo.CurrentCulture, query);
+            }
+            else
+            {
+                string query = $"select * from Area limit {paginacion.Pagina},{paginacion.TamanoPagina}";
+                return string.Format(
+                    CultureInfo.CurrentCulture, query);
+            }
         }
         public string ContarAreasQuery()
         {

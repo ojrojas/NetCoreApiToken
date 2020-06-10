@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
 using RappiApi.Data;
 using RappiApi.Models;
+using RappiApi.Models.ViewModels;
 
 namespace RappiApi.Querys
 {
@@ -55,11 +56,21 @@ namespace RappiApi.Querys
             return string.Format(
                 CultureInfo.CurrentCulture, query);
         }
-        public string ObtenerEmpleadosQuery()
+        public string ObtenerEmpleadosQuery(PaginacionViewModel paginacion = null)
         {
-            string query = "select * from Empleado";
+            if(paginacion == null)
+            {
+                string query = "select * from Empleado";
             return string.Format(
                 CultureInfo.CurrentCulture, query);
+            }
+            else
+            {
+                string query = $"select * from Empleado limit {paginacion.Pagina},{paginacion.TamanoPagina}";
+            return string.Format(
+                CultureInfo.CurrentCulture, query);
+            }
+            
         }
         public string ContarEmpleadosQuery()
         {
