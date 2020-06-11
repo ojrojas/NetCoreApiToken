@@ -9,10 +9,11 @@ namespace RappiApi.Querys
         public string CrearSubAreaQuery(SubArea subarea)
         {
             string query =
-            $"insert into SubArea(Id,Nombre,Codigo)" +
+            $"insert into SubArea(Id,Nombre,Codigo,AreaId)" +
             $"values ('{subarea.Id}'," +
             $"'{subarea.Nombre}'," +
-             $"{subarea.Codigo})";
+             $"{subarea.Codigo}," +
+             $"'{subarea.AreaId}')";
             return string.Format(
                 CultureInfo.CurrentCulture, query);
         }
@@ -20,7 +21,7 @@ namespace RappiApi.Querys
         public string ActualizarSubAreaQuery(SubArea subarea)
         {
             string query = $"update SubArea set Nombre= '{subarea.Nombre}'," +
-             $"Codigo={subarea.Codigo} where Id = '{subarea.Id}'";
+             $"Codigo={subarea.Codigo}, AreaId = '{subarea.AreaId}' where Id = '{subarea.Id}'";
             return string.Format(
                 CultureInfo.CurrentCulture, query);
         }
@@ -40,7 +41,7 @@ namespace RappiApi.Querys
         }
         public string ObtenerSubAreasQuery(PaginacionViewModel paginacion = null)
         {
-            if (paginacion == null)
+            if (paginacion.TamanoPagina == 0)
             {
                 string query = "select * from SubArea";
                 return string.Format(

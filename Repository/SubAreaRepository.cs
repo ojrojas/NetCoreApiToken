@@ -94,13 +94,13 @@ namespace RappiApi.Repository
             }
         }
 
-        public async Task<IReadOnlyList<SubAreaViewModel>> ObtenerSubAreasAsync()
+        public async Task<IReadOnlyList<SubAreaViewModel>> ObtenerSubAreasAsync(PaginacionViewModel paginacion)
         {
            using (var connection = new SqliteConnection(_config["SqliteConnections"]))
             {
                 await connection.OpenAsync();
                 SqliteCommand comando = new SqliteCommand(
-                    query.ObtenerSubAreasQuery(), connection);
+                    query.ObtenerSubAreasQuery(paginacion), connection);
                 SqliteDataReader reader = await comando.ExecuteReaderAsync();
                 var subareaViewModel = new List<SubAreaViewModel>();
                 while (reader.Read())

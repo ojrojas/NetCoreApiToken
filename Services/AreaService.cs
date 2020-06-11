@@ -1,40 +1,52 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using RappiApi.Models;
+using RappiApi.Models.ViewModels;
+using RappiApi.Repository.Interfaces;
 using RappiApi.Services.Interfaces;
 
 namespace RappiApi.Services
 {
     public class AreaServices : IAreaService
     {
-        public Task<int> ActualizarArea(Area area)
+        private readonly IAreaRepository _repository;
+        public AreaServices(IAreaRepository repository)
         {
-            throw new System.NotImplementedException();
+            _repository = repository;
         }
 
-        public Task<int> ContarAreas()
+        public async Task<int> ActualizarArea(AreaViewModel areaViewmodel)
         {
-            throw new System.NotImplementedException();
+            return await  _repository.ActualizarAreaAsync(
+                areaViewmodel.AreaViewModelToArea(areaViewmodel));
         }
 
-        public Task<Area> CrearArea(Area area)
+        public async Task<int> ContarAreas()
         {
-            throw new System.NotImplementedException();
+return await _repository.ContarAreasAsync();
         }
 
-        public Task<int> EliminarArea(Area area)
+        public async Task<AreaViewModel> CrearArea(AreaViewModel areaViewModel)
         {
-            throw new System.NotImplementedException();
+            return await _repository.CrearAreaAsync(
+                areaViewModel.AreaViewModelToArea(areaViewModel));
         }
 
-        public Task<Area> ObtenerArea(Area area)
+        public async Task<int> EliminarArea(AreaViewModel areaViewModel)
         {
-            throw new System.NotImplementedException();
+            return await _repository.EliminarAreaAsync(
+                areaViewModel.AreaViewModelToArea(areaViewModel));
         }
 
-        public Task<IReadOnlyList<Area>> ObtenerAreas()
+        public async Task<AreaViewModel> ObtenerArea(AreaViewModel areaViewModel)
         {
-            throw new System.NotImplementedException();
+            return await _repository.ObtenerAreaAsync(
+                areaViewModel.AreaViewModelToArea(areaViewModel));
+        }
+
+        public  async Task<IReadOnlyList<AreaViewModel>> ObtenerAreas(PaginacionViewModel paginacion = null)
+        {
+            return await _repository.ObtenerAreasAsync(paginacion);
         }
     }
 }

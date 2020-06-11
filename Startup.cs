@@ -48,8 +48,13 @@ namespace RappiApi
 
 
             services.AddScoped<IGeneradorToken, GeneradorToken>();
-             services.AddScoped<IEmpleadoService, EmpleadoService>();
-              services.AddScoped<IEmpleadoRepository, EmpleadoRepository>();
+            services.AddScoped<IEmpleadoService, EmpleadoService>();
+            services.AddScoped<IEmpleadoRepository, EmpleadoRepository>();
+            services.AddScoped<IAreaService, AreaServices>();
+            services.AddScoped<IAreaRepository, AreaRepository>();
+            services.AddScoped<ISubAreaService, SubAreaService>();
+            services.AddScoped<ISubAreaRepository, SubAreaRepository>();
+
 
             services.AddCors(options =>
           {

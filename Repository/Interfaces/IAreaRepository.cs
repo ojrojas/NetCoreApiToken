@@ -12,7 +12,7 @@ namespace RappiApi.Repository.Interfaces
         Task<int> ActualizarAreaAsync(Area Area);
         Task<int> EliminarAreaAsync(Area Area);
         Task<AreaViewModel> ObtenerAreaAsync(Area Area);
-        Task<IReadOnlyList<AreaViewModel>> ObtenerAreasAsync();
+        Task<IReadOnlyList<AreaViewModel>> ObtenerAreasAsync(PaginacionViewModel paginacion);
         Task<int> ContarAreasAsync();
     }
 }

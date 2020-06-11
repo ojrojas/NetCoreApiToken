@@ -52,13 +52,13 @@ namespace RappiApi.Controllers
             if (resultado.Succeeded)
                 return _generadorToken.GenerarToken(login);
 
-            return new BadRequestObjectResult(
+            return 
                 new JsonResult(new
             {
                 error = string.Format(
                 CultureInfo.CurrentCulture,
                 "Error de autenticación")
-            }));
+            });
         }
 
         [Authorize(AuthenticationSchemes = "Bearer")]

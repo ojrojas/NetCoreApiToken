@@ -57,7 +57,11 @@ namespace RappiApi.Services.Tokens
                 signingCredentials: credenciales);
 
             string json_token = new JwtSecurityTokenHandler().WriteToken(token);
-            return new JsonResult(new { token = json_token });
+            return new JsonResult(new { 
+                token = json_token, 
+                expire_in = TimeSpan.FromHours(2).TotalSeconds ,
+                nickname = login.NombreUsuario 
+            });
         }
     }
 }

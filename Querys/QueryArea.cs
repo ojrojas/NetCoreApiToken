@@ -40,7 +40,7 @@ namespace RappiApi.Querys
         }
         public string ObtenerAreasQuery(PaginacionViewModel paginacion =null)
         {
-            if (paginacion == null)
+            if (paginacion.TamanoPagina == 0)
             {
                 string query = "select * from Area";
                 return string.Format(
@@ -48,7 +48,8 @@ namespace RappiApi.Querys
             }
             else
             {
-                string query = $"select * from Area limit {paginacion.Pagina},{paginacion.TamanoPagina}";
+                string query = 
+                $"select * from Area limit {UtilQueryPaginacion.ObtenerPasoPaginacion(paginacion.Pagina, paginacion.TamanoPagina)},{paginacion.TamanoPagina}";
                 return string.Format(
                     CultureInfo.CurrentCulture, query);
             }

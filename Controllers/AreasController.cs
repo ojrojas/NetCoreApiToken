@@ -21,7 +21,7 @@ namespace RappiApi.Controllers
         [Route("ContarAreas")]
         public async Task<IActionResult> ContarAreas()
         {
-            return new JsonResult(new { data = await _service.ContarAreas() });
+            return new JsonResult(await _service.ContarAreas() );
         }
 
         [HttpPost]
@@ -29,8 +29,7 @@ namespace RappiApi.Controllers
         public async Task<IActionResult> CrearArea(AreaViewModel area)
         {
             return new JsonResult(
-                new { data = await _service.CrearArea(
-                    area.AreaViewModelToArea(area)) });
+               await _service.CrearArea(area) );
         }
 
         [HttpPost]
@@ -38,17 +37,15 @@ namespace RappiApi.Controllers
         public async Task<IActionResult> ActualizarArea(AreaViewModel area)
         {
             return new JsonResult(
-                new { data = await _service.ActualizarArea(
-                    area.AreaViewModelToArea(area)) });
+              await _service.ActualizarArea(area) );
         }
 
-         [HttpPost]
+        [HttpPost]
         [Route("EliminarArea")]
         public async Task<IActionResult> EliminarArea(AreaViewModel area)
         {
             return new JsonResult(
-                new { data = await _service.EliminarArea(
-                    area.AreaViewModelToArea(area)) });
+               await _service.EliminarArea(area) );
         }
 
          [HttpPost]
@@ -56,17 +53,15 @@ namespace RappiApi.Controllers
         public async Task<IActionResult> ObtenerArea(AreaViewModel area)
         {
             return new JsonResult(
-                new { data = await _service.ObtenerArea(
-                    area.AreaViewModelToArea(area)) });
+                await _service.ObtenerArea(area) );
         }
 
 
-         [HttpPost]
+        [HttpPost]
         [Route("ObtenerAreas")]
-        public async Task<IActionResult> ObtenerAreas()
+        public async Task<IActionResult> ObtenerAreas(PaginacionViewModel paginacion)
         {
-            return new JsonResult(
-                new { data = await _service.ObtenerAreas() });
+            return  new JsonResult( await _service.ObtenerAreas(paginacion));
         }
     }
 }
