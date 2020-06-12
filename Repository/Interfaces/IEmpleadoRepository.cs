@@ -11,7 +11,7 @@ namespace RappiApi.Repository.Interfaces
         Task<int> ActualizarEmpleadoAsync(Empleado empleado);
         Task<int> EliminarEmpleadoAsync(Empleado empleado);
         Task<EmpleadoViewModel> ObtenerEmpleadoAsync(Empleado empleado);
-        Task<IReadOnlyList<EmpleadoViewModel>> ObtenerEmpleadosAsync();
+        Task<IReadOnlyList<EmpleadoViewModel>> ObtenerEmpleadosAsync(PaginacionViewModel paginacion);
         Task<int> ContarEmpleadosAsync();
     }
 }

@@ -40,9 +40,9 @@ namespace RappiApi.Services
             return _repository.ObtenerEmpleadoAsync(empleado);
         }
 
-        public Task<IReadOnlyList<EmpleadoViewModel>> ObtenerEmpleados()
+        public Task<IReadOnlyList<EmpleadoViewModel>> ObtenerEmpleados(PaginacionViewModel paginacion)
         {
-            return _repository.ObtenerEmpleadosAsync();
+            return _repository.ObtenerEmpleadosAsync(paginacion);
         }
     }
 }

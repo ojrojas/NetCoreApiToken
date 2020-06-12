@@ -12,6 +12,8 @@ namespace RappiApi.Services.Interfaces
         Task<int> EliminarSubArea(SubAreaViewModel subArea);
         Task<SubAreaViewModel> ObtenerSubArea(SubAreaViewModel subArea);
         Task<IReadOnlyList<SubAreaViewModel>> ObtenerSubAreas(PaginacionViewModel paginacion);
+        Task<IReadOnlyList<SubAreaViewModel>> ObtenerSubAreasByAreaId(AreaViewModel area);
         Task<int> ContarSubAreas();
+
     }
 }

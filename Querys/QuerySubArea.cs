@@ -61,5 +61,12 @@ namespace RappiApi.Querys
             return string.Format(
                 CultureInfo.CurrentCulture, query);
         }
+
+        public string ObtenerSubAreasByAreasIdQuery(AreaViewModel area)
+        {
+            string query = $"select * from SubArea where AreaId = '{area.Id}'";
+                return string.Format(
+                    CultureInfo.CurrentCulture, query);
+        }
     }
 }

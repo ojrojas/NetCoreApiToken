@@ -21,52 +21,47 @@ namespace RappiApi.Controllers
         [Route("ContarEmpleados")]
         public async Task<IActionResult> ContarEmpleados()
         {
-            return new JsonResult(new { data = await _service.ContarEmpleados() });
+            return new JsonResult( await _service.ContarEmpleados() );
         }
 
         [HttpPost]
         [Route("CrearEmpleado")]
         public async Task<IActionResult> CrearEmpleado(EmpleadoViewModel empleado)
         {
-            return new JsonResult(
-                new { data = await _service.CrearEmpleado(
-                    empleado.EmpleadoViewModelToEmpleado(empleado)) });
+            return new JsonResult(await _service.CrearEmpleado(
+                    empleado.EmpleadoViewModelToEmpleado(empleado)));
         }
 
         [HttpPost]
         [Route("ActualizarEmpleado")]
         public async Task<IActionResult> ActualizarEmpleado(EmpleadoViewModel empleado)
         {
-            return new JsonResult(
-                new { data = await _service.ActualizarEmpleado(
-                    empleado.EmpleadoViewModelToEmpleado(empleado)) });
+            return new JsonResult( await _service.ActualizarEmpleado(
+                    empleado.EmpleadoViewModelToEmpleado(empleado)) );
         }
 
          [HttpPost]
         [Route("EliminarEmpleado")]
         public async Task<IActionResult> EliminarEmpleado(EmpleadoViewModel empleado)
         {
-            return new JsonResult(
-                new { data = await _service.EliminarEmpleado(
-                    empleado.EmpleadoViewModelToEmpleado(empleado)) });
+            return new JsonResult( await _service.EliminarEmpleado(
+                    empleado.EmpleadoViewModelToEmpleado(empleado)) );
         }
 
          [HttpPost]
         [Route("ObtenerEmpleado")]
         public async Task<IActionResult> ObtenerEmpleado(EmpleadoViewModel empleado)
         {
-            return new JsonResult(
-                new { data = await _service.ObtenerEmpleado(
-                    empleado.EmpleadoViewModelToEmpleado(empleado)) });
+            return new JsonResult( await _service.ObtenerEmpleado(
+                    empleado.EmpleadoViewModelToEmpleado(empleado)) );
         }
 
 
          [HttpPost]
         [Route("ObtenerEmpleados")]
-        public async Task<IActionResult> ObtenerEmpleados()
+        public async Task<IActionResult> ObtenerEmpleados(PaginacionViewModel paginacion)
         {
-            return new JsonResult(
-                new { data = await _service.ObtenerEmpleados() });
+            return new JsonResult( await _service.ObtenerEmpleados(paginacion) );
         }
     }
 }

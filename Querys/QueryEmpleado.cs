@@ -58,7 +58,7 @@ namespace RappiApi.Querys
         }
         public string ObtenerEmpleadosQuery(PaginacionViewModel paginacion = null)
         {
-            if(paginacion == null)
+            if(paginacion.TamanoPagina  == 0)
             {
                 string query = "select * from Empleado";
             return string.Format(

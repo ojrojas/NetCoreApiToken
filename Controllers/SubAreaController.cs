@@ -57,11 +57,18 @@ namespace RappiApi.Controllers
         }
 
 
-         [HttpPost]
+        [HttpPost]
         [Route("ObtenerSubAreas")]
         public async Task<IActionResult> ObtenerSubAreas(PaginacionViewModel paginacion)
         {
             return new JsonResult( await _service.ObtenerSubAreas(paginacion) );
+        }
+
+        [HttpPost]
+        [Route("ObtenerSubAreasByAreaId")]
+        public async Task<IActionResult> ObtenerSubAreasByAreaId(AreaViewModel area)
+        {
+            return new JsonResult( await _service.ObtenerSubAreasByAreaId(area) );
         }
     }
 }

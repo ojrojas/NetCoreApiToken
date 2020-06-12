@@ -48,5 +48,10 @@ return await _repository.ContarSubAreasAsync();
             PaginacionViewModel paginacion){
             return await _repository.ObtenerSubAreasAsync(paginacion);
         }
+
+        public async Task<IReadOnlyList<SubAreaViewModel>> ObtenerSubAreasByAreaId(AreaViewModel area)
+        {
+           return await _repository.ObtenerSubAreasByAreaIdAsync(area);
+        }
     }
 }

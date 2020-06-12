@@ -6,7 +6,7 @@ namespace RappiApi.Models.ViewModels
         public string IdentificationNumber { get; set; }
         public string Name { get; set; }
         public string SecondName { get; set; }
-        public string Surname { get; set; }
+        public string SurName { get; set; }
         public string SecondSurname { get; set; }
         public SubArea SubArea { get; set; }
         public string SubAreaId { get; set; }
@@ -26,7 +26,7 @@ namespace RappiApi.Models.ViewModels
                 NumeroIDentitificacion = viewModel.IdentificationNumber,
                 Nombre = viewModel.Name,
                 SegundoNombre = viewModel.SecondName,
-                Apellido = viewModel.Surname,
+                Apellido = viewModel.SurName,
                 SegundoApellido = viewModel.SecondSurname,
                 SubAreaId = viewModel.SubAreaId,
             };
@@ -47,7 +47,7 @@ namespace RappiApi.Models.ViewModels
                 IdentificationNumber = empleado.NumeroIDentitificacion,
                 Name = empleado.Nombre,
                 SecondName = empleado.SegundoNombre,
-                Surname = empleado.Apellido,
+                SurName = empleado.Apellido,
                 SecondSurname = empleado.SegundoApellido,
                 SubAreaId = empleado.SubAreaId,
             };

@@ -87,11 +87,11 @@ namespace RappiApi.Repository
                     empleadoViewModel.Id = reader.GetString(0);
                     empleadoViewModel.TypeIdentification = reader.GetInt32(1);
                     empleadoViewModel.IdentificationNumber = reader.GetString(2);
-                    empleadoViewModel.Name = reader.GetString(0);
-                    empleadoViewModel.SecondName = reader.GetString(0);
-                    empleadoViewModel.Surname = reader.GetString(0);
-                    empleadoViewModel.SecondSurname = reader.GetString(0);
-                    empleadoViewModel.SubAreaId = reader.GetString(0);
+                    empleadoViewModel.Name = reader.GetString(3);
+                    empleadoViewModel.SecondName = reader.GetString(4);
+                    empleadoViewModel.SurName = reader.GetString(5);
+                    empleadoViewModel.SecondSurname = reader.GetString(6);
+                    empleadoViewModel.SubAreaId = reader.GetString(7);
 
                 }
 
@@ -99,13 +99,13 @@ namespace RappiApi.Repository
             }
         }
 
-        public async Task<IReadOnlyList<EmpleadoViewModel>> ObtenerEmpleadosAsync()
+        public async Task<IReadOnlyList<EmpleadoViewModel>> ObtenerEmpleadosAsync(PaginacionViewModel paginacion)
         {
             using (var connection = new SqliteConnection(_config["SqliteConnections"]))
             {
                 await connection.OpenAsync();
                 SqliteCommand comando = new SqliteCommand(
-                    query.ObtenerEmpleadosQuery(), connection);
+                    query.ObtenerEmpleadosQuery(paginacion), connection);
                 SqliteDataReader reader = await comando.ExecuteReaderAsync();
                 var empleadoViewModel = new List<EmpleadoViewModel>();
                 while (reader.Read())
@@ -115,11 +115,11 @@ namespace RappiApi.Repository
                         Id = reader.GetString(0),
                         TypeIdentification = reader.GetInt32(1),
                         IdentificationNumber = reader.GetString(2),
-                        Name = reader.GetString(0),
-                        SecondName = reader.GetString(0),
-                        Surname = reader.GetString(0),
-                        SecondSurname = reader.GetString(0),
-                        SubAreaId = reader.GetString(0)
+                        Name = reader.GetString(3),
+                        SecondName = reader.GetString(4),
+                        SurName = reader.GetString(5),
+                        SecondSurname = reader.GetString(6),
+                        SubAreaId = reader.GetString(7)
                     });
                 }
 

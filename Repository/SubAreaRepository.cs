@@ -117,5 +117,29 @@ namespace RappiApi.Repository
                 return subareaViewModel;
             }
         }
+
+        public async Task<IReadOnlyList<SubAreaViewModel>> ObtenerSubAreasByAreaIdAsync(AreaViewModel area)
+        {
+            using (var connection = new SqliteConnection(_config["SqliteConnections"]))
+            {
+                await connection.OpenAsync();
+                SqliteCommand comando = new SqliteCommand(
+                    query.ObtenerSubAreasByAreasIdQuery(area), connection);
+                SqliteDataReader reader = await comando.ExecuteReaderAsync();
+                var subareaViewModel = new List<SubAreaViewModel>();
+                while (reader.Read())
+                {
+                    subareaViewModel.Add(new SubAreaViewModel
+                    {
+                        Id = reader.GetString(0),
+                        Name= reader.GetString(1),
+                        Code = reader.GetInt32(2),
+                        AreaId = reader.GetString(3)
+                    });
+                }
+
+                return subareaViewModel;
+            }
+        }
     }
 }
