@@ -17,13 +17,13 @@ namespace RappiApi.Services
 
         public async Task<int> ActualizarArea(AreaViewModel areaViewmodel)
         {
-            return await  _repository.ActualizarAreaAsync(
+            return await _repository.ActualizarAreaAsync(
                 areaViewmodel.AreaViewModelToArea(areaViewmodel));
         }
 
         public async Task<int> ContarAreas()
         {
-return await _repository.ContarAreasAsync();
+            return await _repository.ContarAreasAsync();
         }
 
         public async Task<AreaViewModel> CrearArea(AreaViewModel areaViewModel)
@@ -44,7 +44,7 @@ return await _repository.ContarAreasAsync();
                 areaViewModel.AreaViewModelToArea(areaViewModel));
         }
 
-        public  async Task<IReadOnlyList<AreaViewModel>> ObtenerAreas(PaginacionViewModel paginacion = null)
+        public async Task<IReadOnlyList<AreaViewModel>> ObtenerAreas(PaginacionViewModel paginacion = null)
         {
             return await _repository.ObtenerAreasAsync(paginacion);
         }

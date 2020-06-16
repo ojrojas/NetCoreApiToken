@@ -10,15 +10,46 @@ using RappiApi.Repository.Interfaces;
 
 namespace RappiApi.Repository
 {
+    /// <summary>
+    /// AreaRepository, implementacion metodos IAreRepository
+    /// </summary>
+    /// <autor>Oscar Julian Rojas</author>
+    /// <date>09/06/2020</date>
     public class AreaRepository : IAreaRepository
     {
+        /// <summary>
+        /// Interface, que expone la configuracion de appsettings.json
+        /// </summary>
+        /// <autor>Oscar Julian Rojas</author>
+        /// <date>09/06/2020</date>
         private readonly IConfiguration _config;
-        private readonly QueryArea query =  new QueryArea();
 
+        /// <summary>
+        /// QueryArea, clase que devuelve la simulacion de procedimientos almacenados
+        /// </summary>
+        /// <returns>Query en string para las acciones de ado</returns>
+        /// <autor>Oscar Julian Rojas</author>
+        /// <date>09/06/2020</date>
+        private readonly QueryArea query = new QueryArea();
+
+        /// <summary>
+        /// Constructor de AreaRepository
+        /// </summary>
+        /// <param name="config">Interface de configuracion</param>
+        /// <autor>Oscar Julian Rojas</author>
+        /// <date>09/06/2020</date>
         public AreaRepository(IConfiguration config)
         {
             _config = config;
         }
+
+        /// <summary>
+        /// ActualizarAreaAsync
+        /// </summary>
+        /// <param name="Area">Entidad Area</param>
+        /// <returns>Entero validador ejecucion</returns>
+        /// <autor>Oscar Julian Rojas</author>
+        /// <date>09/06/2020</date>
         public async Task<int> ActualizarAreaAsync(Area area)
         {
             using (var connection = new SqliteConnection(_config["SqliteConnections"]))
@@ -30,9 +61,16 @@ namespace RappiApi.Repository
             }
         }
 
+        /// <summary>
+        /// CrearAreaAsync
+        /// </summary>
+        /// <param name="Area">Entidad Area</param>
+        /// <returns>Cantidad existente en base de datos</returns>
+        /// <autor>Oscar Julian Rojas</author>
+        /// <date>09/06/2020</date>
         public async Task<int> ContarAreasAsync()
         {
-           using (var connection = new SqliteConnection(_config["SqliteConnections"]))
+            using (var connection = new SqliteConnection(_config["SqliteConnections"]))
             {
                 await connection.OpenAsync();
                 SqliteCommand comando = new SqliteCommand(
@@ -46,9 +84,16 @@ namespace RappiApi.Repository
             }
         }
 
+        /// <summary>
+        /// CrearAreaAsync
+        /// </summary>
+        /// <param name="Area">Entidad Area</param>
+        /// <returns>Vista modelo AreaViewModel</returns>
+        /// <autor>Oscar Julian Rojas</author>
+        /// <date>09/06/2020</date>
         public async Task<AreaViewModel> CrearAreaAsync(Area area)
         {
-           using (var connection = new SqliteConnection(_config["SqliteConnections"]))
+            using (var connection = new SqliteConnection(_config["SqliteConnections"]))
             {
                 await connection.OpenAsync();
                 var guid = Guid.NewGuid().ToString();
@@ -62,6 +107,13 @@ namespace RappiApi.Repository
             }
         }
 
+        /// <summary>
+        /// EliminarAreaAsync
+        /// </summary>
+        /// <param name="Area">Entidad Area</param>
+        /// <returns>Entero validador ejecucion</returns>
+        /// <autor>Oscar Julian Rojas</author>
+        /// <date>09/06/2020</date>
         public async Task<int> EliminarAreaAsync(Area area)
         {
             using (var connection = new SqliteConnection(_config["SqliteConnections"]))
@@ -73,9 +125,16 @@ namespace RappiApi.Repository
             }
         }
 
+        /// <summary>
+        /// ObtenerAreaAsync
+        /// </summary>
+        /// <param name="Area">Entidad Area</param>
+        /// <returns>Vista modelo AreaViewModel</returns>
+        /// <autor>Oscar Julian Rojas</author>
+        /// <date>09/06/2020</date>
         public async Task<AreaViewModel> ObtenerAreaAsync(Area area)
         {
-              using (var connection = new SqliteConnection(_config["SqliteConnections"]))
+            using (var connection = new SqliteConnection(_config["SqliteConnections"]))
             {
                 await connection.OpenAsync();
                 SqliteCommand comando = new SqliteCommand(
@@ -93,9 +152,16 @@ namespace RappiApi.Repository
             }
         }
 
+        /// <summary>
+        /// ObtenerAreasAsync
+        /// </summary>
+        /// <param name="PaginacionViewModel">Entidad PaginacionViewModel</param>
+        /// <returns>Lista vista modelo AreaViewModel</returns>
+        /// <autor>Oscar Julian Rojas</author>
+        /// <date>09/06/2020</date>
         public async Task<IReadOnlyList<AreaViewModel>> ObtenerAreasAsync(PaginacionViewModel paginacion)
         {
-           using (var connection = new SqliteConnection(_config["SqliteConnections"]))
+            using (var connection = new SqliteConnection(_config["SqliteConnections"]))
             {
                 await connection.OpenAsync();
                 SqliteCommand comando = new SqliteCommand(
@@ -107,7 +173,7 @@ namespace RappiApi.Repository
                     areaViewModel.Add(new AreaViewModel
                     {
                         Id = reader.GetString(0),
-                        Name= reader.GetString(1),
+                        Name = reader.GetString(1),
                         Code = reader.GetInt32(2),
                     });
                 }

@@ -56,6 +56,16 @@ namespace RappiApi.Querys
             return string.Format(
                 CultureInfo.CurrentCulture, query);
         }
+
+        public string ObtenerEmpleadoPorIdentitficacionONombresQuery(string filtro)
+        {
+            string query = $"select * from Empleado where NumeroIDentitificacion like '%{filtro}%' or " +
+            $"Nombre like '%{filtro}%' or Apellido like '%{filtro}%'";
+            return string.Format(
+                CultureInfo.CurrentCulture, query);
+        }
+
+
         public string ObtenerEmpleadosQuery(PaginacionViewModel paginacion = null)
         {
             if(paginacion.TamanoPagina  == 0)

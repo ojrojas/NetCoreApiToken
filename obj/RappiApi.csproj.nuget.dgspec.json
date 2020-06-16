@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/orojas/Sources/Projects/Rappi/src/RappiApi/RappiApi.csproj": {}
+    "/home/orojasg/Sources/Projects/NetCore/Rappi/NetCoreApiToken/RappiApi.csproj": {}
   },
   "projects": {
-    "/home/orojas/Sources/Projects/Rappi/src/RappiApi/RappiApi.csproj": {
+    "/home/orojasg/Sources/Projects/NetCore/Rappi/NetCoreApiToken/RappiApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/orojas/Sources/Projects/Rappi/src/RappiApi/RappiApi.csproj",
+        "projectUniqueName": "/home/orojasg/Sources/Projects/NetCore/Rappi/NetCoreApiToken/RappiApi.csproj",
         "projectName": "RappiApi",
-        "projectPath": "/home/orojas/Sources/Projects/Rappi/src/RappiApi/RappiApi.csproj",
-        "packagesPath": "/home/orojas/.nuget/packages/",
-        "outputPath": "/home/orojas/Sources/Projects/Rappi/src/RappiApi/obj/",
+        "projectPath": "/home/orojasg/Sources/Projects/NetCore/Rappi/NetCoreApiToken/RappiApi.csproj",
+        "packagesPath": "/home/orojasg/.nuget/packages/",
+        "outputPath": "/home/orojasg/Sources/Projects/NetCore/Rappi/NetCoreApiToken/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/orojas/.nuget/NuGet/NuGet.Config"
+          "/home/orojasg/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"

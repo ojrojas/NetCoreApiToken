@@ -35,6 +35,7 @@ namespace RappiApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            ///consiguracion de validacion de token en cada peticion
             services.ValidacionJwtServicesExtensions(Configuration);
             services.AddControllers();
             services.AddDbContext<RappiApiDbContext>(options =>
@@ -42,11 +43,12 @@ namespace RappiApi
                 options.UseSqlite(Configuration["SqliteConnections"]);
             });
 
+
             services.AddIdentity<UsuarioAplicacion, IdentityRole>()
             .AddEntityFrameworkStores<RappiApiDbContext>()
             .AddDefaultTokenProviders();
 
-
+            /// Scopes de los servicios utilizados en la aplicacion
             services.AddScoped<IGeneradorToken, GeneradorToken>();
             services.AddScoped<IEmpleadoService, EmpleadoService>();
             services.AddScoped<IEmpleadoRepository, EmpleadoRepository>();
@@ -90,8 +92,6 @@ namespace RappiApi
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "RappiApiInfo v1");
                 c.RoutePrefix = string.Empty;
             });
-
-
 
             app.UseHttpsRedirection();
 

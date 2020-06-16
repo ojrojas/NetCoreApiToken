@@ -20,6 +20,11 @@ namespace RappiApi.Services
            return _repository.ActualizarEmpleadoAsync(empleado);
         }
 
+        public async Task<IReadOnlyList<EmpleadoViewModel>> BuscarEmpleados(string filtro)
+        {
+            return await _repository.BuscarEmpleados(filtro);
+        }
+
         public Task<int> ContarEmpleados()
         {
             return _repository.ContarEmpleadosAsync();
