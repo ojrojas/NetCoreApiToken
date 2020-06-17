@@ -87,7 +87,7 @@ namespace RappiApi.Controllers
         }
 
         /// <summary>
-        /// EliminarArea
+        /// ObtenerArea
         /// </summary>
         /// <param name="areaViewModel">Modelo de entrada para obtener area</param>
         /// <returns>Vista del modelo de un area</returns>
@@ -102,7 +102,7 @@ namespace RappiApi.Controllers
         }
 
         /// <summary>
-        /// EliminarArea
+        /// ObtenerAreas
         /// </summary>
         /// <param name="paginacion">Datos entreda para obtener 
         /// la posicion y cantidad de datos para paginar
