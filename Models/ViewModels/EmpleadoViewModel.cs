@@ -114,6 +114,5 @@ namespace RappiApi.Models.ViewModels
                 SubAreaId = empleado.SubAreaId,
             };
         }
-
     }
 }

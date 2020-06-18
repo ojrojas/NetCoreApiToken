@@ -40,13 +40,13 @@ namespace RappiApi.Models.ViewModels
             };
         }
 
-  /// <summary>
+        /// <summary>
         /// AreaViewModelToArea, 
         /// funcion que mapea las areasViewModel a Areas
         /// </summary>
         /// <param name="area">AreaViewModel a mapear a Areas</param>
         /// <returns>Vista de modelo AreaViewModel</returns>
-       /// <author>Oscar Julian Rojas </author>
+        /// <author>Oscar Julian Rojas </author>
         /// <date>09/06/2020</date>
         public Area AreaViewModelToArea(AreaViewModel areaViewModel)
         {

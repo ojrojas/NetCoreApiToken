@@ -59,19 +59,17 @@ namespace RappiApi
 
 
             services.AddCors(options =>
-          {
+
               options.AddPolicy("CorsPolicy",
                   builder => builder
                   .SetIsOriginAllowed((host) => true)
                   .AllowAnyMethod()
                   .AllowAnyHeader()
-                  .AllowCredentials());
-          });
+                  .AllowCredentials()
+          ));
 
             services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "RappiApiInfo", Version = "v1" });
-            });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "RappiApiInfo", Version = "v1" }));
 
         }
 
